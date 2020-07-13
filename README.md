@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Flashers
 
-## Available Scripts
+#### Author: Jozy Kinnaman, Allison Mackey & Josh Hellman
 
-In the project directory, you can run:
+### Description
+A webpage that allows users to enter in a 'flashcard' to study tech terms & see terms by other users as well. 
 
-### `npm start`
+### Setup/Installation Requirements
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+View detailed set up instructions [here](./INSTALL.md)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Known Bugs
 
-### `npm test`
+No known bugs at this time. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Support and Contact Information
 
-### `npm run build`
+_Have a bug or an issue with this application? [Open a new issue](https://github.com/amackey693/brewery/issues) here on GitHub._
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+JavaScript, React, Redux, Firebase, JSX, HTML, Node.js, Git and GitHub
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Specs
+![Diagram Name](./public/diagram.png)
 
-### `npm run eject`
+1. Allows user to create, read, update & delete flashcards
+2. Allows user to submit their own flashcards to a database & associate it to that particular user 
+3. Allows user to sign up, sign in & sign out
+4. Allows user to see their own 'dashboard' with the flashcards they've created
+5. Allows user to see 'feed' with flashcards created by all users or main database
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Stretch Goals: 
+6. Allows user to see flashcards by challenge level: easy, med, difficult ?
+7. Allows user to add flashcards from 'feed' to their own 'dashboard' ?
+8. Allows users to select language: JavaScript, Basic Programming Terms, add other languages if we're able. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This software is licensed under the MIT license.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright © 2020 **_Jozy Kinnaman, Josh Hellman & Allison Mackey, Epicodus_**
