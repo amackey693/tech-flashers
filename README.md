@@ -22,7 +22,7 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 JavaScript, React, Redux, Firebase, JSX, HTML, Node.js, Git and GitHub
 
 ## Specs
-![Diagram Name](./public/diagram.png)
+![TechFlashers](./public/TechFlashers.jpg)
 
 1. Allows user to create, read, update & delete flashcards
 2. Allows user to submit their own flashcards to a database & associate it to that particular user 
