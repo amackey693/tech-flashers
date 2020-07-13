@@ -1,12 +1,16 @@
 import React from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Header';
+import FlashControl from './FlashControl'
 
 function App() {
   return (
-    <div class="container">
-   
-    </div>
+    <React.Fragment>
+        <div class="container">
+          <Header/>
+          <FlashControl/>
+        </div>
+    </React.Fragment>
   );
 }
 
