@@ -35,6 +35,10 @@ Stretch Goals:
 7. Allows user to add flashcards from 'feed' to their own 'dashboard' ?
 8. Allows users to select language: JavaScript, Basic Programming Terms, add other languages if we're able. 
 
+TO DO LIST 
+1. handleChangingSelectedCard function 
+2. FlashCardDetail 
+3. selected card state
 
 ### License
 

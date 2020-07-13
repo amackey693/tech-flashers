@@ -37,7 +37,7 @@ function ReusableForm(props) {
               placeholder="language leave blank if not specific "/>
           </div>
           <div class="form-group">
-          <button type='submit'>Add text for button{props.buttonText}</button>
+          <button class="btn btn-success" type='submit'>{props.buttonText}</button>
           </div>
         </form>
         </div>
