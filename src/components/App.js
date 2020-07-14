@@ -6,7 +6,7 @@ import FlashControl from './FlashControl'
 function App() {
   return (
     <React.Fragment>
-        <div class="container">
+        <div class = "container">
           <Header/>
           <FlashControl/>
         </div>

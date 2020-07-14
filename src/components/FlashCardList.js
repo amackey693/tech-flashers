@@ -9,26 +9,31 @@ function FlashCardList(props){
     {collection: 'cards'}
   ]);
   const cards = useSelector(state => state.firestore.ordered.cards);
+  console.log("flash card list:", cards)
+
   if (isLoaded(cards)) {
     return (
       <React.Fragment>
-        {cards.map((card) => {
-          return (
-            <FlashCard
-            whenFlashCardClicked = {props.onFlashCardSelection}
-            title = {card.title}
-            definiition = {card.definition}
-            userID = {card.userID}
-            type = {card.type}
-            difficulty = {card.difficulty}
-            language = {card.language}
-            id = {card.id}
-            key = {card.id}
-            />
-          )
-        }
-
-        )}
+        <div class="row">
+          <div class=" col col-md-3" >
+          {cards.map((card) => {
+            return <FlashCard
+              whenCardClicked = {props.onFlashCardSelection}
+              title = {card.title}
+              definiition = {card.definition}
+              userID = {card.userID}
+              type = {card.type}
+              difficulty = {card.difficulty}
+              language = {card.language}
+              id = {card.id}
+              key = {card.id}
+              />
+          }
+          )}
+        </div>
+          <div class="row">
+          </div>
+        </div>
       </React.Fragment>
     );
   } else {

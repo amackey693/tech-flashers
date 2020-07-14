@@ -6,3 +6,9 @@ export const seeLandingPage = () => ({
 export const seeForm = () => ({
   type: 'SEE_FORM'
 });
+
+
+export const seeList = () => ({
+  type: 'SEE_LIST'
+});
+

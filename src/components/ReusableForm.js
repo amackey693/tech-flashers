@@ -6,13 +6,13 @@ function ReusableForm(props) {
     <React.Fragment>
       <div>
         <form onSubmit={props.formSubmissionHandler}>
-          <div class="form-group">
+          <div className="form-group">
             <input
               type="text"
               name="title"
               placeholder="Title"/>
           </div>
-          <div class="form-group">
+          <div className="form-group">
           <textarea
             type="text"
             name="definition"
@@ -26,7 +26,7 @@ function ReusableForm(props) {
           </div>
           <div class="form-group">
             <input
-              type="number"
+              type="text"
               name="difficulty"
               placeholder="difficulty level"/>
           </div>

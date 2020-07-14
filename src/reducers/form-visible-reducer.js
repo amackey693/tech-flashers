@@ -8,6 +8,9 @@ export default (state = 'landing-page', action) => {
     case c.SEE_FORM: 
       state = 'see-form';
       return state;
+    case c.SEE_LIST: 
+      state = 'see-list';
+      return state;
     default: return state;
   }
 }

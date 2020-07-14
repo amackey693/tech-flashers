@@ -1,7 +1,7 @@
 import React from 'react';
 import LandingPage from "./LandingPage";
 import FlashCardList from './FlashCardList';
-// import FlashCardDetail from './FlashCardDetail';
+import FlashCardDetail from './FlashCardDetail';
 import NewFlashCardForm from "./NewFlashCardForm";
 import { connect } from 'react-redux';
 import {withFirestore} from 'react-redux-firebase';
@@ -22,18 +22,27 @@ class FlashControl extends React.Component {
       selectedCard: null
     }
   }
+  
 
   // For changing state views 'button clicks'
   landingPageButtonClick = () => {
     const {dispatch} = this.props;
     const action = a.seeLandingPage();
     dispatch(action);
+    this.setState({selectedCard: null})
   }
 
   seeFormButtonClick = () => {
     const {dispatch} = this.props;
     const action = a.seeForm();
     dispatch(action);
+  }
+
+  seeListButtonClick = () => {
+    const {dispatch} = this.props;
+    const action = a.seeList();
+    dispatch(action);
+    this.setState({ selectedCard: null })
   }
 
   // methods 
@@ -55,7 +64,14 @@ class FlashControl extends React.Component {
         id: card.id
       }
       this.setState({selectedCard: firestoreCard})
+      console.log("flash control selectedCard:", this.state.selectedCard)
+      console.log("flash control firestoreCard:",firestoreCard)
     })
+  }
+
+  handleDeletingCard = (id) => {
+    this.props.firestore.delete({collection: 'cards', doc:id});
+    this.setState({selectedCard: null})
   }
 
   render() {
@@ -63,24 +79,29 @@ class FlashControl extends React.Component {
     let button1 = null;
     let button2 = null;
 
-    if (this.props.formVisibleOnPage === 'landing-page') {
+    if (this.state.selectedCard != null) {
+      currentView = <FlashCardDetail
+        card = {this.state.selectedCard}
+        onClickingDelete ={this.handleDeletingCard}
+      />
+      button1 = <button className="btn btn-dark" onClick={this.landingPageButtonClick}>Return Home</button>
+      button2 = <button className="btn btn-dark" onClick={this.seeListButtonClick}>Return To Flashcards</button>
+    } else if (this.props.formVisibleOnPage === 'landing-page') {
       currentView = <LandingPage/>
-      button1 = <button class="btn btn-dark" onClick = {this.seeFormButtonClick}>Add Flash Card!</button>
+      button1 = <button className="btn btn-dark" onClick = {this.seeFormButtonClick}>Add Flash Card!</button>
+      button2 = <button className="btn btn-dark" onClick = {this.seeListButtonClick}>See all Flashcards</button>
 
     } else if (this.props.formVisibleOnPage === 'see-form') {
       currentView = <NewFlashCardForm
       onNewCardCreation = {this.handleAddingNewCardToList}/>
-      button1 = <button class="btn btn-dark" onClick = {this.landingPageButtonClick}>Return Home</button>
-    // } else if (this.state.selectedCard != null) {
-    //   currentView = <FlashCardDetail
-    //     card = {this.state.selectedCard}
-    //   />
-    } else {
-      currentView = <FlashCardList
-      onFlashCardSelection = {this.handleChangingSelectedCard}
-      />
-    }
+      button1 = <button className="btn btn-dark" onClick = {this.landingPageButtonClick}>Return Home</button>
+      button2 = <button className="btn btn-dark" onClick = {this.seeListButtonClick}>Return To Flashcards</button>
 
+    } else if (this.props.formVisibleOnPage === 'see-list') {
+        currentView = <FlashCardList
+        onFlashCardSelection = {this.handleChangingSelectedCard}
+        />
+    }
     return(
       <React.Fragment>
         {currentView}

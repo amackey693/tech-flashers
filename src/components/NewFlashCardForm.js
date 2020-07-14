@@ -17,7 +17,7 @@ function NewFlashCardForm(props) {
       type: event.target.type.value,
       difficulty: event.target.difficulty.value,
       language: event.target.language.value,
-      userId: event.target.userId.value,
+      // userId: C
       timeOpen: firestore.FieldValue.serverTimestamp()
     }
   );

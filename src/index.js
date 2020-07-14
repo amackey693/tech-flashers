@@ -17,7 +17,7 @@ const rrfProps = {
   config: {
     userProfile: "users"
   },
-  dispatch: store.dspatch,
+  dispatch: store.dispatch,
   createFirestoreInstance
 }
 
