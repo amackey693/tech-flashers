@@ -1,8 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+// import {withFirestore, isLoaded} from 'react-redux-firebase';
+// import firebase from "firebase/app";
+
 // import FlashCard from "./FlashCard"
 
 function FlashCardDetail(props) {
+
   
   const detailStyles = {
     backgroundColor: 'white',
@@ -12,35 +16,70 @@ function FlashCardDetail(props) {
     margin: "20px",
     padding: "15px",
   }
-  const { card, onClickingDelete} = props;
+  const { card, onClickingDelete, onClickingEdit} = props;
 
-  return (
-    <React.Fragment>
-    <div class='row'>
-      
-        {/* <div className="col-md-4"> */}
+  // const auth = firebase.auth();
 
-          <em><p>{card.definition}</p></em>
-          <b><h4>{card.type}</h4></b>
-          <h4>{card.difficulty}</h4>
-          <h4>{card.language}</h4>
-          <h4>hello</h4> 
-          <hr/> 
-          {/* <button class= "btn btn-info"onClick={() => onClickingEdit(card.id)}>Update Flash Card</button> */}
-          <br/>
-          <button class="btn btn-danger" onClick={() => onClickingDelete(card.id)}>delete card</button>
-        {/* </div>
-        <div className="col-md-4"></div> */}
-    </div>
+  // if (!isLoaded(auth)) {
+  //   return (
+  //     <React.Fragment>
+  //       <h1>Loading...</h1>
+  //     </React.Fragment>
+  //   )
+  // }
+  // if ((isLoaded(auth)) && (auth.currentUser != null)) {
+    return (
+      <React.Fragment>
+      <div class='row'>
+        
+          <div className="col-md-4">
   
-    </React.Fragment>
-  );
+            <em><p>{card.definition}</p></em>
+            <b><h4>{card.type}</h4></b>
+            <h4>{card.difficulty}</h4>
+            <h4>{card.language}</h4>
+            <hr/> 
+            <div class="form-group"> 
+            <button class= "btn btn-info"onClick={() => onClickingEdit(card.id)}>Update Flash Card</button>
+            </div>
+            <div class="form-group"> 
+            <button class="btn btn-danger" onClick={() => onClickingDelete(card.id)}>delete card</button>
+            </div>
+          </div>
+          <div className="col-md-4"></div>
+      </div>
+    
+      </React.Fragment>
+    );
+  // } else {
+//     return (
+//       <React.Fragment>
+//       <div class='row'>
+        
+//           <div className="col-md-4">
+  
+//             <em><p>{card.definition}</p></em>
+//             <b><h4>{card.type}</h4></b>
+//             <h4>{card.difficulty}</h4>
+//             <h4>{card.language}</h4>
+//             <hr/> 
+      
+//           </div>
+//           <div className="col-md-4"></div>
+//       </div>
+    
+//       </React.Fragment>
+//     );
+//   }
+
+  
 }
 
 FlashCardDetail.propTypes = {
   card: PropTypes.object,
-  onClickingDelete: PropTypes.func
-  // onClickingEdit: PropTypes.func
+  onClickingDelete: PropTypes.func,
+  onClickingEdit: PropTypes.func
+  // auth: PropTypes.object
 }
 
 export default FlashCardDetail;

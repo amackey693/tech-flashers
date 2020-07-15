@@ -1,4 +1,5 @@
 import React  from 'react';
+import { Link} from "react-router-dom";
 
 
 function Header(){
@@ -6,7 +7,10 @@ function Header(){
     <React.Fragment>
       <div>
         <h1>TECH FLASHERS</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur laudantium ad assumenda beatae eaque aliquam quisquam alias, totam dolores accusantium veritatis enim reiciendis omnis eos, blanditiis in velit ex possimus.</p>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <Link className="navbar-brand" to='/'>Home</Link>
+          <Link className="navbar-brand" to='/signin'>Sign In</Link>
+        </nav>
       </div>
     </React.Fragment>
   );
