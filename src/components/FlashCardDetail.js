@@ -1,13 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import {withFirestore, isLoaded} from 'react-redux-firebase';
-// import firebase from "firebase/app";
+import {isLoaded} from 'react-redux-firebase';
+import firebase from "firebase/app";
 
-// import FlashCard from "./FlashCard"
 
 function FlashCardDetail(props) {
-
-  
   const detailStyles = {
     backgroundColor: 'white',
     border: 'solid 1pt #9673A6',
@@ -18,16 +15,16 @@ function FlashCardDetail(props) {
   }
   const { card, onClickingDelete, onClickingEdit} = props;
 
-  // const auth = firebase.auth();
+  const auth = firebase.auth();
 
-  // if (!isLoaded(auth)) {
-  //   return (
-  //     <React.Fragment>
-  //       <h1>Loading...</h1>
-  //     </React.Fragment>
-  //   )
-  // }
-  // if ((isLoaded(auth)) && (auth.currentUser != null)) {
+  if (!isLoaded(auth)) {
+    return (
+      <React.Fragment>
+        <h1>Loading...</h1>
+      </React.Fragment>
+    )
+  }
+  if ((isLoaded(auth)) && (auth.currentUser != null)) {
     return (
       <React.Fragment>
       <div class='row'>
@@ -51,26 +48,26 @@ function FlashCardDetail(props) {
     
       </React.Fragment>
     );
-  // } else {
-//     return (
-//       <React.Fragment>
-//       <div class='row'>
+  } else {
+    return (
+      <React.Fragment>
+      <div class='row'>
         
-//           <div className="col-md-4">
+          <div className="col-md-4">
   
-//             <em><p>{card.definition}</p></em>
-//             <b><h4>{card.type}</h4></b>
-//             <h4>{card.difficulty}</h4>
-//             <h4>{card.language}</h4>
-//             <hr/> 
+            <em><p>{card.definition}</p></em>
+            <b><h4>{card.type}</h4></b>
+            <h4>{card.difficulty}</h4>
+            <h4>{card.language}</h4>
+            <hr/> 
       
-//           </div>
-//           <div className="col-md-4"></div>
-//       </div>
+          </div>
+          <div className="col-md-4"></div>
+      </div>
     
-//       </React.Fragment>
-//     );
-//   }
+      </React.Fragment>
+    );
+  }
 
   
 }

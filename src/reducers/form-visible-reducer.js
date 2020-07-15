@@ -1,7 +1,6 @@
 import * as c from './../actions/ActionTypes';
-import LandingPage from '../components/LandingPage';
 
-export default (state = LandingPage, action) => {
+export default (state = 'landing-page', action) => {
   switch(action.type) {
     case c.LANDING_PAGE: 
       state = 'landing-page';
