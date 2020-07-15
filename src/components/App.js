@@ -13,8 +13,10 @@ function App() {
    <AuthProvider> 
       <Router>
           <div className = "container">
-            <Header/>
-              <PrivateRoute exact path='/' component={Header}/>
+          <Header />
+              <PrivateRoute exact path='/' component={FlashControl}/>
+                
+                {/* <FlashControl/> */}
               {/* changed line 17 from FlashControl to Header - AM */}
               <Route exact path='/SignIn' component={SignIn} />
               <Route exact path='/SignUp' component={SignUp} />

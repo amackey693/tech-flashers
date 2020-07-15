@@ -84,17 +84,18 @@ class FlashControl extends React.Component {
         card = {this.state.selectedCard}
         onClickingDelete ={this.handleDeletingCard}
       />
-      button1 = <button className="btn btn-dark" onClick={this.landingPageButtonClick}>Return Home</button>
+      button1 = <div class="form-group"> <button className="btn btn-dark" onClick={this.landingPageButtonClick}>Return Home</button> </div>
+  
       button2 = <button className="btn btn-dark" onClick={this.seeListButtonClick}>Return To Flashcards</button>
     } else if (this.props.formVisibleOnPage === 'landing-page') {
       currentView = <LandingPage/>
-      button1 = <button className="btn btn-dark" onClick = {this.seeFormButtonClick}>Add Flash Card!</button>
+      button1 = <div class="form-group"> <button className="btn btn-dark" onClick = {this.seeFormButtonClick}>Add Flash Card!</button> </div>
       button2 = <button className="btn btn-dark" onClick = {this.seeListButtonClick}>See all Flashcards</button>
 
     } else if (this.props.formVisibleOnPage === 'see-form') {
       currentView = <NewFlashCardForm
       onNewCardCreation = {this.handleAddingNewCardToList}/>
-      button1 = <button className="btn btn-dark" onClick = {this.landingPageButtonClick}>Return Home</button>
+      button1 = <div class="form-group"> <button className="btn btn-dark" onClick = {this.landingPageButtonClick}>Return Home</button> </div>
       button2 = <button className="btn btn-dark" onClick = {this.seeListButtonClick}>Return To Flashcards</button>
 
     } else if (this.props.formVisibleOnPage === 'see-list') {

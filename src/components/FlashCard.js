@@ -11,11 +11,11 @@ import { PropTypes } from "prop-types";
 function FlashCard(props) {
   return (
     <React.Fragment>
-      <div onClick = {() => props.whenCardClicked(props.id)}>
-        <h1>{props.title}</h1>
+      <div  className="card" onClick = {() => props.whenCardClicked(props.id)}>
+        <h3>{props.title}</h3>
         <b><h4>{props.type}</h4></b>
-        <h4>{props.difficulty}</h4>
-        <h4>{props.language}</h4>
+        <p>{props.difficulty}</p>
+        <p>{props.language}</p>
       </div>
     </React.Fragment>
   );

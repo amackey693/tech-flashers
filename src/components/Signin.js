@@ -1,81 +1,47 @@
-import React from "react";
-import firebase from "firebase/app";
+import React, { useCallback, useContext } from "react";
+import { withRouter, Redirect } from "react-router";
+import firebase from "./../firebase";
+import { AuthContext } from "./Auth.js";
 
-function SignIn(){
+const SignIn = ({ history }) => {
+  const handleLogin = useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await firebase
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
 
-  function doSignUp(event) {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
-      alert("successfully signed up");
-    }).catch(function(error) {
-      console.log(error.message);
-    })
+  const { currentUser } = useContext(AuthContext);
+
+  if (currentUser) {
+    return <Redirect to="/" />;
   }
-  
-  function doSignIn(event) {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-    firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
-      alert("successfully signed in");
-    }).catch(function(error) {
-      console.log(error.message);
-    });
-  }
-  
-  function doSignOut() {
-    firebase.auth().signOut().then(function() {
-      alert("Successfully signed out!");
-    }).catch(function(error) {
-      console.log(error.message);
-    });
-  }
-  
+
   return (
-    <React.Fragment>
-      <h1>Sign up</h1>
-      <div className="form-group">
-      <form onSubmit={doSignUp}>
-        <div className="form-group">
-          <input 
-          type="text"
-          name="email"
-          placeholder="email" />
-        </div>
-        <div className="form-group">
-          <input
-          type='password'
-          name='password'
-          placeholder='Password' />
-        </div>
-        <div className="form-group">
-            <button className="btn btn-dark" type='submit'>Sign up</button>
-        </div>
+    <div>
+      <h1>Log in</h1>
+      <form onSubmit={handleLogin}>
+        <label>
+          Email
+          <input name="email" type="email" placeholder="Email" />
+        </label>
+        <label>
+          Password
+          <input name="password" type="password" placeholder="Password" />
+        </label>
+        <button type="submit">Log in</button>
       </form>
-      </div>
-      
-      <h1>Sign in</h1>
-      <div className="form-group">
-        <form onSubmit={doSignIn}>
-          <div className="form-group">
-            <input type="text" name="email" placeholder="Email"/>
-          </div>
-          <div className="form-group">
-            <input type="password" name="password" placeholder="Password" />
-          </div>
-          <div className="form-group">
-            <button className="btn btn-dark" type="submit">Sign In</button>
-          </div>
-        </form>
-      </div>
-
-      <h1>Sign Out</h1>
-      <button className= "btn btn-dark" onClick={doSignOut}>Sign Out</button>
-    </React.Fragment>
-  
-  )
+    </div>
+  );
 };
 
-export default SignIn;
+export default withRouter(SignIn);
