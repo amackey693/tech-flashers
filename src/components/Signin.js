@@ -1,7 +1,7 @@
 import React from "react";
 import firebase from "firebase/app";
 
-function Signin(){
+function SignIn(){
 
   function doSignUp(event) {
     event.preventDefault();
@@ -78,4 +78,4 @@ function Signin(){
   )
 };
 
-export default Signin;
+export default SignIn;

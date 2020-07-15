@@ -2,25 +2,25 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
 import FlashControl from './FlashControl'
-import Signin from "./Signin";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LandingPage from './LandingPage';
+import SignIn from "./SignIn";
+import SignUp from './SignUp';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import {AuthProvider} from "./Auth";
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
-    <Router>
-        <div className = "container">
-          <Header/>
-            <Switch>
-              <Route path = "/signin">
-                <Signin />
-              </Route>
-              <Route path='/'>
-                <FlashControl/>
-              </Route>
-          </Switch>
-      </div>
-    </Router>
+   <AuthProvider> 
+      <Router>
+          <div className = "container">
+            <Header/>
+              <PrivateRoute exact path='/' component={Header}/>
+              {/* changed line 17 from FlashControl to Header - AM */}
+              <Route exact path='/SignIn' component={SignIn} />
+              <Route exact path='/SignUp' component={SignUp} />
+          </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
